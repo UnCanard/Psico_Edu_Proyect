@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 
+
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,6 +92,47 @@
             background: #77aaff;
         }
     </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador</title>
+    <style>
+        #resultados {
+            margin-top: 20px;
+        }
+        .item {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mi página con buscador</h1>
+
+    <!-- Input del buscador -->
+    <input type="text" id="buscador" placeholder="Buscar..." onkeyup="buscar()">
+    <div id="resultados">
+        <div class="item">Piaget, J. El Nacimiento de la Inteligencia en el Niño</div>
+        <div class="item">Vygotsky, L. S. Pensamiento y Lenguaje</div>
+        <div class="item">Freud, S. Introducción al Psicoanálisis</div>
+        <div class="item">Emilia Ferreiro, Los Sistemas de Escritura</div>
+    </div>
+
+    <script>
+        function buscar() {
+            const input = document.getElementById("buscador").value.toLowerCase();
+            const items = document.querySelectorAll(".item");
+
+            items.forEach(item => {
+                const texto = item.textContent.toLowerCase();
+                if (texto.includes(input)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
 </head>
 
 <body>
